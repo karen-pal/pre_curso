@@ -1,0 +1,102 @@
+<!doctype html>
+
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Pre Curso. Construcción de sentidos</title>
+  <meta name="description" content="Pre Curso. Construcción de sentidos en el arte computacional">
+  <meta name="author" content="Karen Palacio? para wip">
+
+  <meta property="og:title" content="Construcción de sentidos en el arte computacional">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.sitepoint.com/a-basic-html5-template/">
+  <meta property="og:description" content="Pre Curso. Construcción de sentidos en el arte computacional">
+  <meta property="og:image" content="system.jpg">
+
+  <link rel="icon" href="icon.png"--!>
+  <link rel="apple-touch-icon" href="menades.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+  <style>
+    html{ 
+        height: 100%;
+    }
+    body {
+      min-height: 100%;
+      font-family: 'Roboto', sans-serif;
+      text-align: center;
+
+    }
+    #definiciones {
+      text-align: center;
+      overflow-wrap: break-word;
+      hyphens: manual;
+      word-wrap: break-word;
+      color:black;
+      font-size:xx-large !important;
+      border: 1px solid black;
+    }
+    .def {
+        color:blue;
+    }
+    .preg {
+        color:red;
+    }
+    .aclaracion {
+        color:green;
+    }
+    hr {
+      margin: auto 220px
+    }
+  </style>
+
+</head>
+
+<body >
+  <h1>Pre Curso. Construcción de sentidos en el arte computacional</h1>
+  <p>Dictado por Karen Palacio, para WIP Arte Digital </p>
+  <p> mail: karen.palacio.1994@gmail.com</br>ig: kardaver </p>
+  <div id="definiciones"></div>
+  <script>
+      let clicks = 0;
+  let definitions = [{"def":"Una página web es un programa que es ejecutado por el navegador.", "preg":"¿Qué es ejecutar un programa?", "aclaracion":""},
+      {"def":"Una página web es un archivo de texto.", "preg":"", "aclaracion": "Podés ver el texto de esta página apretando ctrl + u si estás en una computadora, o haciendo click acá si estás en el celu."},
+      {"def":"Una página web es algo que por abajo le indica a un sistema de procesamiento complejo qué hacer ante el ingreso de estímulos a través de sus sensores.", "preg":"Le dará cosquillas?", "aclaracion":""},
+      {"def":"Una página web es una forma de ocupar los píxeles de una pantalla.", "preg":"", "aclaracion":"En una pantalla de una notebook de resolución 1080p hay 2073600 píxeles que se están actualizando 30 veces por segundo"},
+      {"def":"Una página web es una relación con el tiempo y el espacio", "preg":"","aclaracion":"Todo lo digital al fin y al cabo son elementos matéricos, que ocupan un lugar en el espacio, que deben ser mantenidos (pagando el mantenimiento), cuidados de la lluvia (pagando un alquiler), mantenidos prendidos (pagando la luz)."},
+      {"def":"Una página web es el resultado de una red global de pasaje de información andando más o menos correctamente, y justo a tiempo, para que no tarde 2s más en cargarse la información y te vayas del sitio.","preg":"","aclaracion":""},
+      {"def":"Una página web es lo que está entre medio de dos etiquetas <html>", "preg":"","aclaracion":""},
+      ];
+
+        function createElem(){
+            console.log("Bienvenide al curso! Nos vemos el próximo miércoles!")
+            let h2Elem = document.createElement("h2");
+            let h3Elem = document.createElement("h3");
+            let pElem = document.createElement("p");
+            let hrElem = document.createElement("hr");
+            h2Elem.innerText = definitions[clicks].def;
+            h2Elem.className = "def";
+            h3Elem.innerText =  definitions[clicks].preg;
+            h3Elem.className = "preg";
+            pElem.innerText =  definitions[clicks].aclaracion;
+            pElem.className = "aclaracion";
+
+            h2Elem.appendChild(h3Elem);
+            h3Elem.appendChild(pElem);
+            pElem.appendChild(hrElem);
+            let old = document.getElementById("definiciones").innerHTML += h2Elem.innerHTML;
+            clicks = (clicks + 1) % definitions.length;
+            if (clicks == definitions.length) {
+            
+            }
+            console.log(clicks);
+        }
+        document.body.addEventListener("click",createElem);
+
+
+  </script>
+</body>
+</html>
