@@ -30,47 +30,81 @@
       text-align: center;
 
     }
+    #empezar {
+ background: rgb(255,255,255);
+background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(212,125,125,1) 25%, rgba(210,255,196,1) 49%, rgba(122,127,184,1) 83%);
+
+    text-shadow: 1px 1px 2px white;
+    font-weight: 900;
+    text-decoration: underline wavy blue;   /* Subrayado rojo ondulado */
+    color: blue;
+    }
     #definiciones {
       text-align: center;
       overflow-wrap: break-word;
       hyphens: manual;
       word-wrap: break-word;
-      color:blue;
+        color:#0b4999;
       border: 1px solid black;
 
-      font-size: 4.3vw;
+      font-size: 3.3vw;
     }
     .def {
-        color:blue;
+        color:#0b4999 !important;
     }
     .preg {
-        color:red;
+        color:#0b7a99 !important;
     }
     .aclaracion {
-        color:green;
+        color:#162538 !important;
+        font-weight:normal;
+    }
+    div#definiciones{
+        font-weight:bold;
     }
     hr {
       margin: auto 220px
+    }
+    #avanzar{
+   position: fixed;
+  right: 0;
+  bottom: 0;
+  width: 5%;
+    height: calc(0.664 * 7.5vw);
+  color: black;
+  text-align: left; 
+    background-image:url(tap.png);
+text-decoration: underline wavy red;   /* Subrayado rojo ondulado */
+        font-weight:bold;
+    text-shadow: 1px 1px 2px white;
+    }
+    img {
+        float:top;
+   z-index:0;
+   z-index:0;
+    background-image:url(tap.png);
     }
   </style>
 
 </head>
 
+<a href='view-source:https://karen-pal.github.io/pre_curso/' target='_blank' >apretando este link<a/>
 <body >
     <h1>Pre Curso. Construcción de sentidos en el arte computacional</h1>
   <p>Dictado por <a href="https://www.instagram.com/kardaver/">Karen Palacio</a>, para WIP Arte Digital </p>
   <p> mail: karen.palacio.1994@gmail.com</br> <a href="https://www.instagram.com/kardaver/">ig: kardaver</a></p>
   <p><a href="https://wipartedigital.com/2022/02/la-construccion-de-sentidos-en-el-arte-computacional/"> Página del curso en WIP </a> </p>
+  <div id="avanzar">avanzar</div>
   <hr/>
-  <h1>EMPEZAR</h1>
+  <h1 id="empezar">EMPEZAR</h1>
   <div id="definiciones"></div>
   <script>
       let clicks = 0;
       let definitions = [
-      {"def":"Una página web es, en una primera instancia, un archivo de texto.", "preg":"", "aclaracion": "Podés ver el texto de esta página apretando ctrl + u si estás en una computadora, o <a href='view-source:https://karen-pal.github.io/pre_curso/'>apretando este link<a/>"},
+      {"def":"Una página web es, en una primera instancia, un archivo de texto.", "preg":"", "aclaracion": "Mirá el texto de esta página apretando la combinación de teclas ctrl + u, si estás en una computadora, o <a href='https://github.com/karen-pal/pre_curso/blob/main/index.html' target='_blank'>apretando este link<a/>"},
       {"def":"Un texto es un tejido denso, enmarcado en una historia, geografía y situación política. Cada recorte es -en sí- un texto nuevo. ", "preg":"", "aclaracion": ""},
-      {"def":"Para la transmisión de un mensaje se necesita, entre otras cosas, un medio y un código. Por ejemplo, en el caso de la lengua escrita con la que estás interactuando, el medio es la pantalla donde se imprimen los grafos que pertenecen al código que compartimos: la lengua española.", "preg":"", "aclaracion": ""},
-      {"def":"Podemos ver que este texto es un producto de múltiples hibridajes. Este texto-página web, como todo programa, está pensado para un lector doble: unx humanx que escribe, diseña y modifica el cuerpo del texto, y un ente-computadora que modifica su constitución matérica para traducir estos grafos a procesos computacionales.", "aclaracion":"","preg":""},
+      {"def":"Para la transmisión de un mensaje se necesita, entre otras cosas, un medio y un código. ", "preg":"", "aclaracion": " Demos un ejemplo. En el caso de la lengua escrita con la que estás interactuando, el medio es la pantalla donde se imprimen los grafos que pertenecen al código que compartimos: la lengua española."},
+      {"def":"Podemos ver que este texto es múltiple: el resultado de hibridaje de códigos, autores y medios.", "aclaracion":"  Este texto-página web, como todo programa, está pensado para un lector doble: unxs humanxs que se re-organiza para escribir, diseñar y modificar el cuerpo del texto, y un ente-computadora que modifica su constitución matérica y se re-organiza, para traducir estos grafos a procesos computacionales.","preg":""},
       {"def":"Una página web es algo que por abajo le indica a un sistema de procesamiento complejo qué hacer ante el ingreso de estímulos a través de sus sensores.", "preg":"Hay que volver consciente qué puede sensar y qué no puede sensar una computadora, dada su anatomía.", "aclaracion":""},
       {"def":"Una página web es, además, una forma de ocupar los píxeles de una pantalla.", "preg":"", "aclaracion":"En una pantalla de una notebook de resolución 1080p hay 2073600 píxeles, que se están actualizando 30 veces por segundo."},
       {"def":"Todo proceso computacional tiene una temporalidad y una espacialidad", "preg":"","aclaracion":"Todo lo digital al fin y al cabo corren en una computadora específica, que ocupa un lugar en el espacio, que debe ser mantenida (pagando el mantenimiento), cuidada de la lluvia y del clima (pagando un alquiler), mantenida prendida (pagando la luz), etc."},
@@ -83,15 +117,15 @@
             let h3Elem = document.createElement("h3");
             let pElem = document.createElement("p");
             let hrElem = document.createElement("hr");
-            h2Elem.innerText = definitions[clicks].def;
+            h2Elem.innerHTML = definitions[clicks].def;
             h2Elem.className = "def";
-            h3Elem.innerText =  definitions[clicks].preg;
+            h3Elem.innerHTML =  definitions[clicks].preg;
             h3Elem.className = "preg";
-            pElem.innerText =  definitions[clicks].aclaracion;
+            pElem.innerHTML =  definitions[clicks].aclaracion;
             pElem.className = "aclaracion";
 
             h2Elem.appendChild(h3Elem);
-            h3Elem.appendChild(pElem);
+            h2Elem.appendChild(pElem);
             pElem.appendChild(hrElem);
             let old = document.getElementById("definiciones").innerHTML += h2Elem.innerHTML;
             clicks = (clicks + 1) % definitions.length;
@@ -108,7 +142,8 @@
                    }
             );
         }
-        document.body.addEventListener("click",createElem);
+        document.getElementById("empezar").addEventListener("click",createElem);
+        document.getElementById("definiciones").addEventListener("click",createElem);
 
 
   </script>
